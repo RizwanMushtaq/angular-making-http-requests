@@ -50,7 +50,7 @@
       </button>
     </div>
   </div>
-  <div class="row" *ngIf="!loadedPosts.length">
+  <div class="row" *ngIf="!loadedPosts.length && !error">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <p>No posts available!</p>
     </div>
@@ -63,9 +63,13 @@
       </div>
     </div>
   </div>
-  <div class="row" *ngIf="isFetching">
+  <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <p>Loading!</p>
+      <p *ngIf="isFetching">Loading!</p>
+      <div class="alert alert-danger" *ngIf="error">
+        <h3>An error occurred!</h3>
+        <p>{{ error }}</p>
+      </div>
     </div>
   </div>
 </div>
