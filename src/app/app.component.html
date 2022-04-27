@@ -43,7 +43,7 @@
       |
       <button
         class="btn btn-danger"
-        [disabled]="loadedPosts.length < 1"
+        [disabled]="loadedPosts.length < 0"
         (click)="onClearPosts()"
       >
         Clear Posts
@@ -69,6 +69,7 @@
       <div class="alert alert-danger" *ngIf="error">
         <h3>An error occurred!</h3>
         <p>{{ error }}</p>
+        <button class="btn btn-danger" (click)="onHandleError()">Okay</button>
       </div>
     </div>
   </div>
